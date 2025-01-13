@@ -1,4 +1,3 @@
-
 var buttonColours = ["red", "blue", "green", "yellow"];
 
 var gamePattern = [];
@@ -7,7 +6,7 @@ var userClickedPattern = [];
 var started = false;
 var level = 0;
 
-$(document).keydown(function() {
+$(document).on("keydown touchstart", function(event) {
   if(!started) {
     $("#level-title").text("Level" + level);
     nextSequence();
@@ -15,7 +14,8 @@ $(document).keydown(function() {
   }
 });
 
-$(".btn").click(function() {
+$(".btn").on("click touchstart", function(event) {
+  event.preventDefault();
   var userChosenColour = $(this).attr("id");
   userClickedPattern.push(userChosenColour);
 
