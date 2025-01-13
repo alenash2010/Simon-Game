@@ -15,6 +15,14 @@ $(document).keydown(function() {
   }
 });
 
+$(document).touchstart(function() {
+  if(!started) {
+    $("#level-title").text("Level" + level);
+    nextSequence();
+    started = true;
+  }
+});
+
 $(".btn").click(function() {
   var userChosenColour = $(this).attr("id");
   userClickedPattern.push(userChosenColour);
